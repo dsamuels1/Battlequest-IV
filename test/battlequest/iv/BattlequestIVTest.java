@@ -31,6 +31,13 @@ public class BattlequestIVTest {
     
      @Test
     public void HeroDropGoldTest(){
+        Hero hero = new Hero(10, 10, 500, 21, 50000);
+        int expected = 42;
+        int actual = hero.hCalcGoldDrop(12);
+        assertEquals(expected,hero.hCalcGoldDrop(12), .0001);
+        actual = hero.hCalcGoldDrop();
+        assertNotNull(actual);    
+    }
         
     }
     
