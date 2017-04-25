@@ -36,12 +36,16 @@ public class BattlequestIVTest {
     
     @Test
     public void levelUpTest(){
-        
+        Hero Bob = new Hero(20, 20, 20, 2, 5000);
+		Bob.levelUp();
+		assertEquals(3, Bob.getLevel());
     }
     
     @Test
     public void usePotionTest(){
-        
+        Hero Bob = new Hero(20, 20, 20, 2, 5000, 1);
+        Bob.usePotion();
+	assertEquals(5200, Bob.getHp());
     }
     
     @Test
