@@ -60,6 +60,11 @@ public class BattlequestIVTest {
     
     @Test
     public void EnemyDropGoldTest(){
-        
+        Hero justADude = new Hero(5,5, 30, 5, 5000);
+        Enemy doucher = new Enemy(5, 5, 500, 5);
+        justADude.attack(doucher);
+        assertEquals(doucher.getHp(), 500);
+        justADude.calcGoldDropped();
+        System.out.println("Gold dropped is" + justADude.calcGoldDropped());
     }
 }
