@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package battlequest.iv;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  *
@@ -90,8 +91,22 @@ public class Hero {
         numPotions = p;
    }
    
-   public int hCalcGoldDrop(){
-       return 0;
+    protected int getRanNum(Integer[] randomNumber) {
+        int randReturn; 
+        
+        if(randomNumber.length <= 0) {
+            randReturn = ThreadLocalRandom.current().nextInt(10, 26);
+        } else  {
+            randReturn = randomNumber[0];
+        }
+        
+        return randReturn;
+    }
+    
+    public int hCalcGoldDrop(Integer... randomNumber){
+        int goldDrop;
+        goldDrop = (int) ((myLevel/3)*((getRanNum(randomNumber))*0.5));
+        return goldDrop;
    }
    
    public void levelUp(){
