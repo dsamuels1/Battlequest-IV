@@ -60,6 +60,16 @@ public class BattlequestIVTest {
     
     @Test
     public void EnemyDropGoldTest(){
+        int drop = 0;
+       int myLevel = 10;
+       int min = 10;
+       int max = 26;
+       
+       drop = ((myLevel / 3) * (min + (int)(Math.random() * ((max - min) + 1))));
         
+        Enemy doucher = new Enemy(5, 5, 500, 5);
+        int newGold = doucher.calcGoldDropped();
+        assertEquals(calcGoldDropped(newGold), drop);
+        System.out.println("Gold dropped is" + doucher.calcGoldDropped());
     }
 }
