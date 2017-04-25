@@ -50,7 +50,7 @@ public class Hero {
         myDefense = defense;
     }
     
-    public double getDefense(){
+    public int getDefense(){
         return mydefense;
     }
      public void setLevel(int level){
@@ -62,7 +62,12 @@ public class Hero {
     }
     
    public void attack(Enemy enemy){
-       
+       int oldHp = enemy.getHp();
+       int L = myLevel;
+       int P = myAttack;
+       int A = enemy.getDefense();
+       double damage = ((((((2*L)/5)+2)*P)/50)*A);
+       enemy.setHp(oldHp - damage);
    }
    
    public void usePotion(){
