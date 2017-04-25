@@ -16,6 +16,7 @@ public class Hero {
    private int myLevel;
    private int myGold;
    private int myHp;
+   private int numPotions;
    
     public Hero(int attack, double defense, int gold, int level, int hp){
        myAttack = attack;
@@ -24,6 +25,15 @@ public class Hero {
        myGold = gold;
        myHp = hp;
     }
+   
+   public Hero(int attack, double defense, int gold, int level, int hp, int numPot){
+       myAttack = attack;
+       myDefense = defense;
+       myLevel = level;
+       myGold = gold;
+       myHp = hp;
+	   numPotions = numPot;
+	}
    
    public void setAttack(int attack){
         myAttack = attack;
@@ -50,8 +60,8 @@ public class Hero {
         myDefense = defense;
     }
     
-    public int getDefense(){
-        return mydefense;
+    public double getDefense(){
+        return myDefense;
     }
      public void setLevel(int level){
         myLevel = level;
@@ -71,7 +81,13 @@ public class Hero {
    }
    
    public void usePotion(){
-       
+       if (numPotions > 0){
+		   myHp += 200;
+		   numPotions--;
+	   }
+   }
+   public void setPotions(int p){
+        numPotions = p;
    }
    
    public int hCalcGoldDrop(){
@@ -79,7 +95,7 @@ public class Hero {
    }
    
    public void levelUp(){
-       
+       myLevel++;
    }
    
 }
