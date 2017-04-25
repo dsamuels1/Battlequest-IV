@@ -66,8 +66,11 @@ public class Enemy {
     
    public int calcGoldDropped(){
        int drop = 0;
-
-       drop = ((myLevel / 3) * rand());
+       int min = 10;
+       int max = 26;
+       
+       drop = ((myLevel / 3) * (min + (int)(Math.random() * ((max - min) + 1))));
+       System.out.println("The enemy dropped " + drop + "gold!");
        return drop;
    }
 }
