@@ -58,7 +58,16 @@ public class Enemy {
        else hero.setHp(newVal);
        
    }
+    
+   public int rand(){
+       int rand = ThreadLocalRandom.current().nextInt(10, 26);
+       return rand;
+   }
+    
    public int calcGoldDropped(){
-       return 0;
+       int drop = 0;
+
+       drop = ((myLevel / 3) * rand());
+       return drop;
    }
 }
